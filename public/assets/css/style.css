@@ -1,3 +1,5 @@
-body {
-    color: #f76c6c;
-}
+@import url('https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Teko&family=Ubuntu:wght@400;700&display=swap');
+
+@import "_variables.css";
+@import "_navbar.css";

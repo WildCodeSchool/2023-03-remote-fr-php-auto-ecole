@@ -1,0 +1,206 @@
+nav.navbar-responsive {
+  --transition-duration: 0.4s;
+  --font-family: var(--font-family-secondary);
+  --color: var(--primary-inverse);
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: .25rem var(--spacing);
+  font-family: var(--font-family);
+  background-color: var(--dark);
+  box-shadow: var(--box-shadow);
+}
+
+nav.navbar-responsive a {
+  --color: var(--color);
+}
+
+nav.navbar-responsive > h1 {
+  --font-size: 1.25em;
+  --h1-color: var(--primary-inverse);
+  margin-right: 2rem;
+  margin-bottom: 0;
+  padding: .5rem 1rem;
+  border-radius: 16px;
+  background-color: var(--primary);
+}
+
+nav.navbar-responsive > form {
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 991px) {
+  nav.navbar-responsive > form {
+    margin-left: auto;
+  }
+}
+
+nav.navbar-responsive > form > label {
+  --width: 3rem;
+  --height: 3rem;
+  --padding: 0.5rem;
+  --label-border-width: 0px;
+  --bar-transition-duration: 0.3s;
+  --bar-thickness: 4px;
+  --bar-color: var(--light);
+  --bar-space: 0.625rem;
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+  display: flex;
+  padding: var(--padding);
+  border: var(--border-width) solid transparent;
+  width: var(--width);
+  height: var(--height);
+  margin: 0.5rem 0;
+}
+
+@media only screen and (prefers-color-scheme: dark) {
+  :root:not([data-theme]) nav.navbar-responsive > form > label {
+    --bar-color: white;
+  }
+}
+
+nav.navbar-responsive > form > label:has(input:focus) {
+  box-shadow: 0 0px 10px var(--outline-width) var(--form-element-focus-color);
+  border-color: var(--form-element-active-border-color);
+}
+
+nav.navbar-responsive > form > label > input[type='checkbox'],
+nav.navbar-responsive > form > label::before,
+nav.navbar-responsive > form > label::after {
+  position: absolute;
+  display: block;
+  left: var(--padding);
+  right: var(--padding);
+  height: var(--bar-thickness);
+  background-color: var(--bar-color);
+  border-radius: 4px;
+}
+
+nav.navbar-responsive > form > label > input[type='checkbox'] {
+  --border-width: var(--bar-thickness);
+  --border-color: var(--bar-color);
+  --box-shadow: none;
+  border: none;
+  width: auto;
+  margin: 0;
+  margin-inline-end: 0;
+  top: calc(
+    (var(--height) / 2) - (var(--bar-thickness) / 2) - var(--label-border-width)
+  );
+  transition: background 0s var(--bar-transition-duration);
+}
+
+nav.navbar-responsive > form > label::before,
+nav.navbar-responsive > form > label::after {
+  content: '';
+  transition-duration: var(--bar-transition-duration),
+    var(--bar-transition-duration);
+  transition-delay: 0s, var(--bar-transition-duration), 0s;
+  transition-property: transform, top, background;
+}
+
+nav.navbar-responsive > form > label::before {
+  top: calc(
+    (var(--height) / 2) - (var(--bar-thickness) / 2) - var(--label-border-width) -
+      var(--bar-space)
+  );
+}
+
+nav.navbar-responsive > form > label::after {
+  top: calc(
+    (var(--height) / 2) - (var(--bar-thickness) / 2) - var(--label-border-width) +
+      var(--bar-space)
+  );
+}
+
+nav.navbar-responsive:has(input[type='checkbox']:checked) > form > label {
+  --bar-color: white;
+}
+
+nav.navbar-responsive:has(input[type='checkbox']:checked)
+  > form
+  > label
+  > input[type='checkbox'] {
+  background: none;
+}
+
+nav.navbar-responsive:has(input[type='checkbox']:checked)
+  > form
+  > label::before,
+nav.navbar-responsive:has(input[type='checkbox']:checked)
+  > form
+  > label::after {
+  top: calc(
+    (var(--height) / 2) - (var(--bar-thickness) / 2) - var(--label-border-width)
+  );
+  transform: rotate(45deg);
+  transition-property: top, transform, background;
+}
+
+nav.navbar-responsive:has(input[type='checkbox']:checked)
+  > form
+  > label::after {
+  transform: rotate(-45deg);
+}
+
+nav.navbar-responsive:has(input[type='checkbox'])
+  > label:has(input[type='reset']):before {
+  content: '';
+  position: fixed;
+  visibility: hidden;
+  inset: 0;
+  background-color: #000;
+  opacity: 0;
+  transition: opacity var(--transition-duration),
+    visibility var(--transition-duration);
+  transition-delay: 0s, var(--transition-duration);
+}
+
+nav.navbar-responsive:has(input[type='checkbox']:checked)
+  > label:has(input[type='reset']):before {
+  visibility: visible;
+  opacity: 0.8;
+  transition-delay: 0s;
+}
+
+nav.navbar-responsive input[type='reset'] {
+  display: none;
+}
+
+nav.navbar-responsive > ul {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  padding-top: 2rem;
+  transform: translateX(100%);
+  transition: transform 0.4s ease;
+  background-color: #333;
+  /* animation: .4s ease 0s reverse open_menu forwards; */
+}
+
+nav.navbar-responsive:has(input[type='checkbox']:checked) > ul {
+  transform: translateX(0);
+}
+
+@media screen and (768px < width < 992px) {
+  nav.navbar-responsive > ul {
+    left: 50%;
+  }
+}
+@media screen and (width >= 992px) {
+  nav.navbar-responsive > ul {
+    position: relative;
+    flex-direction: row;
+    padding: 0;
+    background-color: transparent;
+    transform: translateX(0);
+    transition: none;
+  }
+  nav.navbar-responsive > form > label {
+    display: none;
+  }
+}

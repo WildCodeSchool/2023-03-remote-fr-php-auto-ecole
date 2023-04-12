@@ -1,0 +1,18 @@
+[data-theme="light"],
+:root:not([data-theme="dark"]) {
+  --primary: #4C6284;
+  --primary-hover: #3b5987;
+  --primary-focus: rgba(216, 27, 96, 0.125);
+  --primary-inverse: #FFF;
+
+  --dark: #11191F;
+  --light: #FFF;
+
+  --box-shadow: 0px 3px 10px 3px rgb(0 0 0 / 30%);
+}
+
+:root {
+  --font-family: "Ubuntu", system-ui,-apple-system,"Segoe UI","Roboto","Cantarell","Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+
+  --font-family-secondary: "Teko", system-ui,-apple-system,"Segoe UI","Roboto","Cantarell","Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}

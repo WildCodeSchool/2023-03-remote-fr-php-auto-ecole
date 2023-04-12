@@ -1,0 +1,13 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+	<main class="container">
+		<h1>Nos formations</h1>
+		<ul>
+			{% for training in trainings %}
+				<li>{{ training.title }}
+				</li>
+			{% endfor %}
+		</ul>
+	</main>
+{% endblock %}

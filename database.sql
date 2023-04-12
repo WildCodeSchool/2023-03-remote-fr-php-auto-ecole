@@ -22,6 +22,22 @@ SET time_zone = "+00:00";
 
 -- --------------------------------------------------------
 
+CREATE TABLE training (
+  id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  title VARCHAR(255),
+  content TEXT
+);
+
+INSERT INTO training (title, content) VALUES
+('Am (Cyclomoteurs)', 'Le permis de conduire est devenu un impératif sociétal important pour les jeunes qui ont à se déplacer pour leurs études, leur travail ou même leur vie sociale.
+Dés le début  de la formation, l\'élève va devoir acquérir des compétences pour ne pas mettre en danger sa sécurité et celle des autres.<br>
+La formation théorique validée par l\'examen du code de la route permet de transmettre les clés de compréhension de la sécurité routière.<br>
+La formation à la conduite a pour but principal d\'amener le conducteur débutant à la maîtrise de compétences en termes de savoir-être, savoirs, savoir-faire et savoir-devenir.<br>
+Les formateurs de l\'auto-école JB vous guideront et vous conseilleront tout au long des cours théoriques et pratiques'),
+('Les conduites accompagnées', 'Lorem'),
+('Permis B', 'Lorem');
+
+
 --
 -- Structure de la table `item`
 --

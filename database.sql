@@ -28,15 +28,41 @@ CREATE TABLE training (
   content TEXT
 );
 
-INSERT INTO training (title, content) VALUES
-('Am (Cyclomoteurs)', 'Le permis de conduire est devenu un impératif sociétal important pour les jeunes qui ont à se déplacer pour leurs études, leur travail ou même leur vie sociale.
+INSERT INTO training VALUES
+(1, 'Les enjeux de la formation au permis', 'Le permis de conduire est devenu un impératif sociétal important pour les jeunes qui ont à se déplacer pour leurs études, leur travail ou même leur vie sociale.
 Dés le début  de la formation, l\'élève va devoir acquérir des compétences pour ne pas mettre en danger sa sécurité et celle des autres.<br>
 La formation théorique validée par l\'examen du code de la route permet de transmettre les clés de compréhension de la sécurité routière.<br>
 La formation à la conduite a pour but principal d\'amener le conducteur débutant à la maîtrise de compétences en termes de savoir-être, savoirs, savoir-faire et savoir-devenir.<br>
 Les formateurs de l\'auto-école JB vous guideront et vous conseilleront tout au long des cours théoriques et pratiques'),
-('Les conduites accompagnées', 'Lorem'),
-('Permis B', 'Lorem');
+(2, 'Les conduites accompagnées', 'Lorem'),
+(3, 'Déroulement du permis B', 'Lorem'),
+(4, 'Examen code de la route', 'Lorem'),
+(5, 'Examen conduite permis B', 'Lorem'),
+(6, 'Permis AM (ex BSR)', 'Lorem'),
+(7, 'Formation moto 125 avec permis B', 'Lorem'),
+(8, 'Permis moto A1', 'Lorem'),
+(9, 'Permis moto A2', 'Lorem'),
+(10, 'Passerelle moto A', 'Lorem'),
+(11, 'Permis remorque B96', 'Lorem'),
+(12, 'Permis remorque BE', 'Lorem'),
+(13, 'Permis B boîte automatique', 'Lorem'),
+(14, 'Formation post-permis', 'Lorem');
 
+
+CREATE TABLE licence (
+  id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  title VARCHAR(255),
+  training_id INT NOT NULL,
+  CONSTRAINT fk_licence_training FOREIGN KEY (training_id) REFERENCES training(id)
+);
+
+INSERT INTO licence (title, training_id) VALUES
+('AM (cyclomoteurs)', 6),
+('Permis 125', 7),
+('Permis moto A1', 8),
+('Permis moto A2', 9),
+('Permis B', 3)
+;
 
 --
 -- Structure de la table `item`

@@ -1,0 +1,4 @@
+.grid {
+    grid-template-columns: 25% 1fr;
+    gap: calc(var(--spacing) * 2);
+}

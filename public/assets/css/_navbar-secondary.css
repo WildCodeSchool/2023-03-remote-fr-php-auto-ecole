@@ -1,0 +1,21 @@
+nav.nav-secondary {
+  align-items: flex-start;
+}
+
+nav.nav-secondary > ul {
+  position: sticky;
+  top: 100px;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  padding: var(--spacing);
+  margin: 0;
+  background-color: var(--gray);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+nav.nav-secondary > ul > li {
+  --nav-element-spacing-vertical: calc(var(--spacing) / 4);
+  --nav-element-spacing-horizontal: calc(var(--spacing) / 2);
+}

@@ -1,23 +1,25 @@
 <!doctype html>
 <html lang="fr" data-theme="light">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="/assets/images/favicon.png">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="/assets/images/favicon.png">
 
-    <title>{% block title %}{% endblock %}</title>
+        <title>
+            {% block title %}{% endblock %}
+        </title>
 
-    {# <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css"> #}
-    <link rel="stylesheet" href="/assets/css/style.css">
-    {% block stylesheet %}{% endblock %}
-</head>
+        {# <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css"> #}
+        <link rel="stylesheet" href="/assets/css/style.css">
+        {% block stylesheet %}{% endblock %}
+    </head>
 
-<body>
-    {% include 'Include/_navbar.html.twig' %}
-    {% block content %}{% endblock %}
-    {% block javascript %}{% endblock %}
-</body>
+    <body>
+        {% include 'Include/_navbar.html.twig' %}
+        <main class="container">
+            {% block content %}{% endblock %}
+        </main>
+        {% block javascript %}{% endblock %}
+    </body>
 </html>
-
-

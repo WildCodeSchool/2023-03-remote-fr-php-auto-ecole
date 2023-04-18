@@ -1,18 +1,24 @@
-[data-theme="light"],
-:root:not([data-theme="dark"]) {
-  --primary: #4C6284;
+[data-theme='light'],
+:root:not([data-theme='dark']) {
+  --primary: #4c6284;
   --primary-hover: #3b5987;
   --primary-focus: rgba(216, 27, 96, 0.125);
-  --primary-inverse: #FFF;
+  --primary-inverse: #fff;
 
-  --dark: #11191F;
-  --light: #FFF;
+  --gray: #d9d9d9;
+  --dark: #11191f;
+  --light: #fff;
 
-  --box-shadow: 0px 3px 10px 3px rgb(0 0 0 / 30%);
+  --box-shadow: 0px 3px 7px 2px rgb(0 0 0 / 30%);
 }
 
 :root {
-  --font-family: "Ubuntu", system-ui,-apple-system,"Segoe UI","Roboto","Cantarell","Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  --font-family: 'Ubuntu', system-ui, -apple-system, 'Segoe UI', 'Roboto',
+    'Cantarell', 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-family-secondary: 'Teko', system-ui, -apple-system, 'Segoe UI',
+    'Roboto', 'Cantarell', 'Noto Sans', sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 
-  --font-family-secondary: "Teko", system-ui,-apple-system,"Segoe UI","Roboto","Cantarell","Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  /* --spacing: .5rem; */
 }

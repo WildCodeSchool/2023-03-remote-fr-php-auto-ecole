@@ -1,22 +1,47 @@
+body > nav:first-of-type {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+
+nav {
+  --font-family: var(--font-family-secondary);
+  font-family: var(--font-family);
+}
+
 nav.navbar-responsive {
   --transition-duration: 0.4s;
-  --font-family: var(--font-family-secondary);
+  
   --color: var(--primary-inverse);
   position: relative;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   padding: .25rem var(--spacing);
-  font-family: var(--font-family);
+  
   background-color: var(--dark);
   box-shadow: var(--box-shadow);
 }
 
-nav.navbar-responsive a {
+nav.navbar-responsive a,
+nav.navbar-responsive [role="link"] {
   --color: var(--color);
 }
 
+nav.navbar-responsive details[role=list] summary::after {
+  filter: brightness(5);
+}
+
+@media screen and (max-width: 991px) {
+  nav.navbar-responsive details[role=list] summary+ul {
+    position: relative;
+  }
+}
+
 nav.navbar-responsive > h1 {
+  --font-weight: 400;
   --font-size: 1.25em;
   --h1-color: var(--primary-inverse);
   margin-right: 2rem;
@@ -46,7 +71,7 @@ nav.navbar-responsive > form > label {
   --bar-color: var(--light);
   --bar-space: 0.625rem;
   position: relative;
-  z-index: 1;
+  z-index: 11;
   cursor: pointer;
   display: flex;
   padding: var(--padding);

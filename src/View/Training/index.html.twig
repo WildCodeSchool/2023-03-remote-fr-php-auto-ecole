@@ -14,44 +14,63 @@
             </ul>
         </nav>
         <div>
-            <h1>
-                Nos formations
-            </h1>
-            <p>
-                Toutes nos formations répondent aux exigences et du Référentiel pour l'Éducation à une Mobilité Citoyenne  (enjeux du REMC).
-                														Nous dispensons les cours théoriques et pratiques pour l'obtention d'attestation ou de permis dans les catégories suivantes :
-                			
-            </p>
-            <ul>
-                {% for licence in licences %}
-                    <li>
-                        <a href="#">
-                            {{ licence.title }}
-                        </a>
-                    </li>
-                {% endfor %}
-            </ul>
+            <form action="" method="post">
+                <h3>Nouvelle formation</h3>
+                    <label for="title">
+                        Titre  
+                        <input type="text" id="title" name="title" placeholder="Titre" required></label>
+                
+                    <label for="content">
+                        Contenu  
+                        <textarea name="content" id="content" rows="10"></textarea>    
+                    </label>
+                    <button type="submit">Enregistrer</button>
+                    </form>
+                <h1>
+                    Nos formations
+                                
+                </h1>
+                <p>
+                    Toutes nos formations répondent aux exigences et du Référentiel pour l'Éducation à une Mobilité Citoyenne  (enjeux du REMC).
+                                    														Nous dispensons les cours théoriques et pratiques pour l'obtention d'attestation ou de permis dans les catégories suivantes :
+                                    			
+                                
+                </p>
+                <ul>
+                    {% for licence in licences %}
+                        <li>
+                            <a href="#">
+                                {{ licence.title }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
 
-            <p>
-                Ces formations ont des cursus spécifiques que vous pouvez consultez sur ce site. Vous pouvez également consulter le déroulement type d'une formation ainsi que les conditions de passages aux examens théoriques et pratiques.
-                									Nous encourageons tous nos candidats répondants aux critères requis à suivre la formation pratique en conduite accompagnée.
-                			
-            </p>
-            <p>
-                Notre formation théorique au code de la route s'effectue dans nos locaux ou sur internet, elle comprend également des cours de sécurité routière.
-                									La réussite à l'examen du "code", valable 5 ans, est un obligatoire pour se présenter à l'examen pratique.
-                			
-            </p>
-            <p>
-                Pour estimer le nombre d'heures de conduite nécessaires, nous effectuons pendant une heure une évaluation initiale des capacités théoriques et pratiques de l'élève avec le véhicule correspondant au permis souhaité.
-                									La formation pratique est réalisée sur des véhicules adaptés suivant le permis souhaité dans des conditions de circulation réelles ou sur piste privée.
-                									Pour répondre à certaines difficultés que pourraient rencontrer des conducteurs titulaires d'un permis récent, nous pouvons vous renseigner sur les formations post permis.
-                			
-            </p>
-            <p>
-                Consultez nos tarifs, l'auto école JB propose le permis à 1 euros par jour !
-                			
-            </p>
-        </div>
-    </section>
-{% endblock %}
+                <p>
+                    Ces formations ont des cursus spécifiques que vous pouvez consultez sur ce site. Vous pouvez également consulter le déroulement type d'une formation ainsi que les conditions de passages aux examens théoriques et pratiques.
+                                    									Nous encourageons tous nos candidats répondants aux critères requis à suivre la formation pratique en conduite accompagnée.
+                                    			
+                                
+                </p>
+                <p>
+                    Notre formation théorique au code de la route s'effectue dans nos locaux ou sur internet, elle comprend également des cours de sécurité routière.
+                                    									La réussite à l'examen du "code", valable 5 ans, est un obligatoire pour se présenter à l'examen pratique.
+                                    			
+                                
+                </p>
+                <p>
+                    Pour estimer le nombre d'heures de conduite nécessaires, nous effectuons pendant une heure une évaluation initiale des capacités théoriques et pratiques de l'élève avec le véhicule correspondant au permis souhaité.
+                                    									La formation pratique est réalisée sur des véhicules adaptés suivant le permis souhaité dans des conditions de circulation réelles ou sur piste privée.
+                                    									Pour répondre à certaines difficultés que pourraient rencontrer des conducteurs titulaires d'un permis récent, nous pouvons vous renseigner sur les formations post permis.
+                                    			
+                                
+                </p>
+                <p>
+                    Consultez nos tarifs, l'auto école JB propose le permis à 1 euros par jour !
+                                    			
+                                
+                </p>
+            </div>
+        </section>
+    {% endblock %}
+    

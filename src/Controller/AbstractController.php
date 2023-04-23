@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Model\TrainingManager;
 use Twig\Environment;
 use Twig\Extension\DebugExtension;
 use Twig\Loader\FilesystemLoader;
@@ -12,7 +13,6 @@ use Twig\Loader\FilesystemLoader;
 abstract class AbstractController
 {
     protected Environment $twig;
-
 
     public function __construct()
     {
@@ -25,5 +25,7 @@ abstract class AbstractController
             ]
         );
         $this->twig->addExtension(new DebugExtension());
+        $trainingManager = new TrainingManager();
+        $this->twig->addGlobal('trainings', $trainingManager->selectAll());
     }
 }

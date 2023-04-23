@@ -1,51 +1,50 @@
 <nav class="navbar-responsive">
-    <h1>
-        <a href="/">
-            Auto école JB
-                    
-        </a>
-    </h1>
-    <form id="form-navigation">
-        <label for="menu">
-            <input type="checkbox" id="menu" aria-label="Toggle menu"></label>
-        </form>
-        <label for="reset-form-navigation">
-            <input type="reset" form="form-navigation" id="reset-form-navigation" aria-label="Close menu"></label>
-            <ul>
-                <li>
-                    <details role="list">
-                        <summary aria-haspopup="listbox" role="link">
-                            <a href="/training">
-                                Formations
-                            </a>
-                        </summary>
-                        <ul role="listbox">
-                            <li>
-                                <a href="#">
-                                    Les enjeux de la formation au permis
-                                                                    
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Les conduites accompagnées
-                                                                    
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">
-                            Tarifs
-                                                    
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            Infos pratiques
-                                                    
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-            
+	<h1>
+		<a href="/">
+			Auto école JB
+		</a>
+	</h1>
+	<form id="form-navigation">
+		<label for="menu">
+			<input type="checkbox" id="menu" aria-label="Toggle menu"></label>
+	</form>
+	<label for="reset-form-navigation">
+		<input type="reset" form="form-navigation" id="reset-form-navigation" aria-label="Close menu"></label>
+	<ul>
+		<li>
+			<details role="list">
+				<summary aria-haspopup="listbox" role="link">
+					<a href="/training">
+						Formations
+
+					</a>
+				</summary>
+				<ul role="listbox">
+					{% for training in trainings %}
+						<li>
+							<a href="#">
+								{{ training.title }}
+							</a>
+						</li>
+					{% endfor %}
+
+				</ul>
+			</li>
+		</li>
+		<li>
+			<a href="#">
+				Tarifs
+			</a>
+		</li>
+		<li>
+			<a href="#">
+				Infos pratiques
+			</a>
+		</li>
+		<li>
+			<a href="/message">
+				Demande d'informations
+			</a>
+		</li>
+	</ul>
+</nav>

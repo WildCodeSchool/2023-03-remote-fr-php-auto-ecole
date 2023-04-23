@@ -1,0 +1,37 @@
+{% extends "layout.html.twig" %}
+
+{% block content %}
+	<form>
+		<h1>Demande d'informations</h1>
+		<label for="email" >
+			Email
+			<input type="email" id="email" name="email" >
+		</label>
+		<label for="training">
+			Choisissez votre formation
+			<select name="training_id" id="training"></select>
+		</label>
+		<fieldset>
+			<legend>Informations sur les permis</legend>
+			<p>
+				Vous souhaitez des informations complémentaires sur certains permis ?
+				<br>
+				Choisissez dans la liste ci-dessous.
+			</p>
+			<label for="licence1">
+				<input type="checkbox" name="licences" id="licence1">
+				Permis 1
+			</label>
+			<label for="licence2">
+				<input type="checkbox" name="licences" id="licence2">
+				Permis 2
+			</label>
+		</fieldset>
+
+		<label for="content">
+			Message
+			<textarea name="content" id="content" rows="5"></textarea>
+		</label>
+		<button type="submit">Envoyer</button>
+	</form>
+{% endblock %}

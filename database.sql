@@ -22,13 +22,54 @@ SET time_zone = "+00:00";
 
 -- --------------------------------------------------------
 
-CREATE TABLE training (
-  id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  title VARCHAR(255),
+CREATE TABLE `training` (
+  `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `title` VARCHAR(255),
   content TEXT
 );
 
-INSERT INTO training VALUES
+CREATE TABLE `message` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `email` VARCHAR(255) NULL,
+  `content` TEXT NULL,
+  `sended_at` DATETIME NULL,
+  `training_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `fk_message_training1`
+    FOREIGN KEY (`training_id`)
+    REFERENCES `training` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+CREATE TABLE `licence` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `title` VARCHAR(100) NULL,
+  `training_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `fk_licence_training1`
+    FOREIGN KEY (`training_id`)
+    REFERENCES `training` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+CREATE TABLE `message_licence` (
+  `message_id` INT NOT NULL,
+  `licence_id` INT NOT NULL,
+  CONSTRAINT `fk_message_licence_message1`
+    FOREIGN KEY (`message_id`)
+    REFERENCES `message` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_message_licence_licence1`
+    FOREIGN KEY (`licence_id`)
+    REFERENCES `licence` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+INSERT INTO `training` VALUES
 (1, 'Les enjeux de la formation au permis', 'Le permis de conduire est devenu un impératif sociétal important pour les jeunes qui ont à se déplacer pour leurs études, leur travail ou même leur vie sociale.
 Dés le début  de la formation, l\'élève va devoir acquérir des compétences pour ne pas mettre en danger sa sécurité et celle des autres.<br>
 La formation théorique validée par l\'examen du code de la route permet de transmettre les clés de compréhension de la sécurité routière.<br>
@@ -48,58 +89,10 @@ Les formateurs de l\'auto-école JB vous guideront et vous conseilleront tout au
 (13, 'Permis B boîte automatique', 'Lorem'),
 (14, 'Formation post-permis', 'Lorem');
 
-
-CREATE TABLE licence (
-  id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  title VARCHAR(255),
-  training_id INT NOT NULL,
-  CONSTRAINT fk_licence_training FOREIGN KEY (training_id) REFERENCES training(id)
-);
-
-INSERT INTO licence (title, training_id) VALUES
+INSERT INTO `licence` (`title`, `training_id`) VALUES
 ('AM (cyclomoteurs)', 6),
 ('Permis 125', 7),
 ('Permis moto A1', 8),
 ('Permis moto A2', 9),
 ('Permis B', 3)
 ;
-
---
--- Structure de la table `item`
---
-
-CREATE TABLE `item` (
-  `id` int(11) UNSIGNED NOT NULL,
-  `title` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Contenu de la table `item`
---
-
-INSERT INTO `item` (`id`, `title`) VALUES
-(1, 'Stuff'),
-(2, 'Doodads');
-
---
--- Index pour les tables exportées
---
-
---
--- Index pour la table `item`
---
-ALTER TABLE `item`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT pour les tables exportées
---
-
---
--- AUTO_INCREMENT pour la table `item`
---
-ALTER TABLE `item`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

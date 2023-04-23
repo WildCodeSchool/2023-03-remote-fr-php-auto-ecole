@@ -1,0 +1,22 @@
+main form {
+    max-width: 65ch;
+    margin: 0 auto;
+}
+
+fieldset {
+    border: 1px solid var(--form-element-border-color);
+    padding: var(--spacing);
+    border-radius: var(--border-radius);
+}
+
+fieldset legend {
+    font-weight: bold;
+    padding: calc(var(--spacing) / 2);
+}
+
+label:has(input[required]):before {
+    content: "*";
+    display: inline-block;
+    color: var(--danger);
+    font-weight: bold;
+}

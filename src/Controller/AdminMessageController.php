@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Model\MessageManager;
+
 class AdminMessageController extends AbstractController
 {
     public function index()
@@ -11,6 +13,9 @@ class AdminMessageController extends AbstractController
             header('HTTP/1.1 401 Unauthorized');
             exit();
         }
-        return $this->twig->render('Admin/Messages/index.html.twig');
+        $messageManager = new MessageManager();
+        return $this->twig->render('Admin/Messages/index.html.twig', [
+            'messages' => $messageManager->selectAll()
+        ]);
     }
 }

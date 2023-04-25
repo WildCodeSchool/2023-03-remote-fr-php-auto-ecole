@@ -1,32 +1,33 @@
 {% extends "Admin/layout.html.twig" %}
 
 {% block content %}
-    <h1>Tous les messages</h1>
-    <table role="grid">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Email</th>
-                <th>Formation</th>
-                <th>Message</th>
-                <th>Infos sur les permis</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>1</td>
-                <td>test</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>test</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-            </tr>
-        </tbody>
-    </table>
+	<h1>Tous les messages</h1>
+	<table role="grid">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Email</th>
+				<th>Formation</th>
+				<th>Message</th>
+				<th>Infos sur les permis</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for message in messages %}
+				<tr>
+					<td>{{message.id}}</td>
+					<td>{{message.email}}</td>
+					<td>{{message.trainingTitle}}</td>
+					<td>{{message.content|raw}}</td>
+					<td>
+						<ul>
+							{% for licence in message.licences %}
+								<li>{{licence.title}}</li>       
+							{% endfor %}
+						</ul>
+					</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
 {% endblock %}

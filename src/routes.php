@@ -10,6 +10,7 @@ return [
     '' => ['HomeController', 'index',],
     'training' => ['TrainingController', 'index'],
     'message' => ['MessageController', 'index'],
+    'message/success' => ['MessageController', 'success'],
     'admin' => ['AdminController', 'index'],
     'admin/messages' => ['AdminMessageController', 'index'],
     'login' => ['AdminController', 'login'],

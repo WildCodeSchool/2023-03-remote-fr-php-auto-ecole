@@ -9,7 +9,12 @@
 		</label>
 		<label for="training">
 			Choisissez votre formation
-			<select name="training_id" id="training"></select>
+			
+			<select name="training_id" id="training">
+			{% for training in trainings %}
+				<option value="{{training.id}}">{{training.title}}</option>
+			{% endfor %}
+			</select>
 		</label>
 		<fieldset>
 			<legend>Informations sur les permis</legend>
@@ -18,14 +23,12 @@
 				<br>
 				Choisissez dans la liste ci-dessous.
 			</p>
-			<label for="licence1">
-				<input type="checkbox" id="licence1" >
-				Permis 1
-			</label>
-			<label for="licence2">
-				<input type="checkbox" id="licence2" >
-				Permis 2
-			</label>
+			{% for licence in licences %}	
+				<label for="licence{{licence.id}}">
+					<input type="checkbox" id="licence{{licence.id}}" name="licences[]" value="{{licence.id}}">
+					{{licence.title}}
+				</label>
+			{% endfor %}
 		</fieldset>
 
 		<label for="content">

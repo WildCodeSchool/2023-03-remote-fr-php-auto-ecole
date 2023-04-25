@@ -69,6 +69,20 @@ CREATE TABLE `message_licence` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
+CREATE TABLE `user` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `email` varchar(100) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `pseudo` varchar(45) DEFAULT NULL,
+  `firstname` varchar(45) DEFAULT NULL,
+  `lastname` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `email_UNIQUE` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+INSERT INTO `user` VALUES (1,'admin@test.com','$2y$10$4Fr/E4Lcj8HRTQ5UtXBE4./ut/diPoZQLzICLRQqqFU5NamJpsKOK','Marty','Marty','McFly');
+
+
 INSERT INTO `training` VALUES
 (1, 'Les enjeux de la formation au permis', 'Le permis de conduire est devenu un impératif sociétal important pour les jeunes qui ont à se déplacer pour leurs études, leur travail ou même leur vie sociale.
 Dés le début  de la formation, l\'élève va devoir acquérir des compétences pour ne pas mettre en danger sa sécurité et celle des autres.<br>

@@ -1,0 +1,7 @@
+.bg-dark {
+    background-color: var(--dark);
+}
+
+.bg-gray {
+    background-color: var(--gray);
+}

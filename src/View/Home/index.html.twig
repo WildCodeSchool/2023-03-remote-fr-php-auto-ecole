@@ -1,5 +1,31 @@
 {% extends 'layout.html.twig' %}
 
-{% block content %}
+{% block body_class %}bg-dark
+{% endblock %}
 
+{% block header %}
+	<header class="header-home">
+		<div class="bg-image"></div>
+		<h1>Auto École JB</h1>
+		<p>Pons - Gémozac</p>
+	</header>
+{% endblock %}
+
+{% block content %}
+	{% set links = [
+        {'title': 'Permis AM', 'subtitle': 'Scooter', 'url': '#'},
+        {'title': 'Permis B', 'subtitle': 'AAC', 'url': '#'},
+        {'title': 'Permis Moto', 'subtitle': 'A A1 A2', 'url': '#'},
+        {'title': 'Permis Remorque', 'subtitle': 'BE B96', 'url': '#'},
+    ] %}
+	<ul class="list-grid-square">
+		{% for link in links %}
+			<li>
+				<a href="{{link.url}}">
+					<span>{{link.title}}</span>
+					<small>{{link.subtitle}}</small>
+				</a>
+			</li>
+		{% endfor %}
+	</ul>
 {% endblock %}

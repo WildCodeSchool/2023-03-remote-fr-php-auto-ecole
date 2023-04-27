@@ -2,8 +2,12 @@
 
 @import "pico.min.css";
 @import "_variables.css";
+@import "_color.css";
+@import "_footer.css";
 @import "_form.css";
 @import "_global.css";
 @import "_grid.css";
+@import "_header.css";
+@import "_list.css";
 @import "_navbar.css";
 @import "_navbar-secondary.css";

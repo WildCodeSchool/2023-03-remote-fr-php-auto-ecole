@@ -15,11 +15,13 @@
         {% block stylesheet %}{% endblock %}
     </head>
 
-    <body>
+    <body class="{% block body_class %}{% endblock %}">
         {% include 'Include/_navbar.html.twig' %}
+        {% block header %}{% endblock %}
         <main class="container">
             {% block content %}{% endblock %}
         </main>
+        {% include "Include/_footer.html.twig" %}
         {% block javascript %}{% endblock %}
     </body>
 </html>

@@ -1,0 +1,21 @@
+body>footer {
+    --block-spacing-vertical: var(--spacing);
+    padding: 0;
+    margin-top: auto;
+}
+
+footer>section {
+    --background-color: var(--gray);
+    --block-spacing-vertical: var(--spacing);
+    padding: var(--spacing);
+    margin-bottom: 0;
+    background-color: var(--background-color);
+}
+
+footer>section:last-child {
+    --block-spacing-vertical: 0;
+    --background-color: var(--primary);
+    padding: calc(var(--spacing) / 2);
+    color: var(--primary-inverse);
+    font-size: .875rem;
+}

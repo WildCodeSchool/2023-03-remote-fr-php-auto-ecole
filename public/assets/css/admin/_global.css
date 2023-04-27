@@ -22,3 +22,8 @@ body > aside h1,
 body > aside > nav a {
     --color: var(--primary-inverse);
 }
+
+main form {
+    max-width: 65ch;
+    margin: 0 auto;
+}

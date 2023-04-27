@@ -1,0 +1,28 @@
+{% extends "Admin/layout.html.twig" %}
+
+{% block content %}
+    <h1>Toutes les formations</h1>
+    <a href="/admin/trainings/add" role="button">+ ajouter</a>
+    <table role="grid">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Titre</th>
+                <th></th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for training in trainings %}
+				<tr>
+					<td>{{training.id}}</td>
+					<td>
+                        {{training.title}}
+                    </td>
+                    <td>
+                        <a href="/admin/trainings/edit?id={{training.id}}"><ins>modifier</ins></a> | <a href="">supprimer</a>
+                    </td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+{% endblock %}

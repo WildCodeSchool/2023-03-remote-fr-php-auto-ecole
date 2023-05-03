@@ -1,6 +1,48 @@
 {% extends "Admin/layout.html.twig" %}
 
 {% block content %}
-	<h1>Nouvelle formation</h1>
+	<h1>Modifier "{{ training.title}}"</h1>
 	{% include "Admin/Training/_form.html.twig" %}
+    <hr>
+
+    <form action="/admin/trainings/add-files" enctype="multipart/form-data" method="post">
+        <input type="hidden" name="training_id" value="{{ training.id }}">
+        <label for="files">Télécharger des fichiers
+            <input type="file" name="files[]" id="files" multiple
+                   accept="image/jpeg, image/jpg, image/png, image/webp">
+        </label>
+        <input type="submit" value="télécharger">
+    </form>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Preview</th>
+				<th>File name</th>
+                <th>Position</th>
+                <th></th>
+			</tr>
+		</thead>
+		<tbody>
+
+			{% for file in files %}
+				<tr>
+					<td>{{ file.id }}</td>
+					<td>
+                        <img src="/uploads/{{ file.name }}" alt="" style="max-width: 80px">
+                    </td>
+                    <td>
+                        {{ file.name }}
+                    </td>
+                    <td>
+                        {{ file.position }}
+                    </td>
+                    <td>
+                        <a href="/admin/trainings/delete-file?id={{ file.id }}" class="danger">supprimer</a>
+                    </td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
 {% endblock %}

@@ -31,6 +31,6 @@ abstract class AbstractController
         $this->user = isset($_SESSION['user_id']) ? $userManager->selectOneById($_SESSION['user_id']) : false;
         $this->twig->addGlobal('user', $this->user);
         $trainingManager = new TrainingManager();
-        $this->twig->addGlobal('trainings', $trainingManager->selectAll());
+        $this->twig->addGlobal('trainings', $trainingManager->selectAll('title'));
     }
 }

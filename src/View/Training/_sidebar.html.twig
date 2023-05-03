@@ -1,0 +1,13 @@
+<aside>
+	<nav class="nav-secondary nav-sticky">
+		<ul>
+			{% for training in trainings %}
+				<li>
+					<a href="/trainings/show?id={{ training.id }}">
+						{{ training.title }}
+					</a>
+				</li>
+			{% endfor %}
+		</ul>
+	</nav>
+</aside>

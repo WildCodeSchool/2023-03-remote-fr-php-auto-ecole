@@ -14,7 +14,7 @@
 		<li>
 			<details role="list">
 				<summary aria-haspopup="listbox" role="link">
-					<a href="/training">
+					<a href="/trainings">
 						Formations
 
 					</a>
@@ -22,7 +22,7 @@
 				<ul role="listbox">
 					{% for training in trainings %}
 						<li>
-							<a href="#">
+							<a href="/trainings/show?id={{ training.id }}">
 								{{ training.title }}
 							</a>
 						</li>

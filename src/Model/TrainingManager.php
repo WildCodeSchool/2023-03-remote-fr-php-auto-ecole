@@ -10,7 +10,7 @@ class TrainingManager extends AbstractManager
 
     public function insert(array $training): int
     {
-        $statement = $this->pdo->prepare("INSERT INTO " . self::TABLE . " (`title`, `content`) 
+        $statement = $this->pdo->prepare("INSERT INTO " . self::TABLE . " (`title`, `content`)
         VALUES (:title, :content)");
         $statement->bindValue('title', $training['title'], \PDO::PARAM_STR);
         $statement->bindValue('content', $training['content'], \PDO::PARAM_STR);

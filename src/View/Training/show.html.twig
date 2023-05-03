@@ -1,0 +1,6 @@
+{% extends 'Training/layout-grid-2cols.html.twig' %}
+
+{% block main %}
+    <h1>{{training.title}}</h1>
+    {{training.content|raw}}
+{% endblock %}

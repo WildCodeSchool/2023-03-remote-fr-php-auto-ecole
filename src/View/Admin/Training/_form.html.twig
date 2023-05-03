@@ -11,3 +11,15 @@
     </label>
     <button type="submit">Enregistrer</button>
 </form>
+
+
+{% block javascript %}
+<script src="https://cdn.ckeditor.com/ckeditor5/37.1.0/classic/ckeditor.js"></script>
+<script>
+    ClassicEditor.create( document.querySelector( '#content' ) )
+    .catch( error => {
+        console.error( error )
+    });
+
+</script>
+{% endblock %}

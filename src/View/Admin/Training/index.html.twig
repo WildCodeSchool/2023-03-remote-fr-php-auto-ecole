@@ -16,10 +16,17 @@
 				<tr>
 					<td>{{training.id}}</td>
 					<td>
-                        {{training.title}}
+                        <a href="/admin/trainings/edit?id={{training.id}}">
+							{{training.title}}
+						</a>
                     </td>
                     <td>
-                        <a href="/admin/trainings/edit?id={{training.id}}"><ins>modifier</ins></a> | <a href="">supprimer</a>
+                        <a class="success" href="/admin/trainings/edit?id={{training.id}}">
+							modifier
+						</a> | 
+						<a class="danger" href="/admin/trainings/delete?id={{training.id}}">
+							supprimer
+						</a>
                     </td>
 				</tr>
 			{% endfor %}

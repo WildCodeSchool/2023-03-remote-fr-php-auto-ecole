@@ -80,6 +80,21 @@ CREATE TABLE `user` (
   UNIQUE KEY `email_UNIQUE` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
+CREATE TABLE `file` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(255) NULL,
+  `is_image` TINYINT NULL,
+  `training_id` INT NOT NULL,
+  `position` INT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_file_training1_idx` (`training_id` ASC) VISIBLE,
+  CONSTRAINT `fk_file_training1`
+    FOREIGN KEY (`training_id`)
+    REFERENCES `training` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
 INSERT INTO `user` VALUES (1,'admin@test.com','$2y$10$4Fr/E4Lcj8HRTQ5UtXBE4./ut/diPoZQLzICLRQqqFU5NamJpsKOK','Marty','Marty','McFly');
 
 
